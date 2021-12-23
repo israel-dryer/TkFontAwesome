@@ -1,3 +1,14 @@
+<!-- [![Downloads](https://pepy.tech/badge/tkfontawesome)](https://pepy.tech/project/tkfontawesome)
+[![Downloads](https://pepy.tech/badge/tkfontawesome/month)](https://pepy.tech/project/tkfontawesome) -->
+
+![](https://img.shields.io/github/release/israel-dryer/tkfontawesome.svg)
+![](https://img.shields.io/github/issues/israel-dryer/tkfontawesome.svg)
+![](https://img.shields.io/github/issues-closed/israel-dryer/tkfontawesome.svg)
+![](https://img.shields.io/github/license/israel-dryer/tkfontawesome.svg)
+![](https://img.shields.io/github/stars/israel-dryer/tkfontawesome.svg)
+![](https://img.shields.io/github/forks/israel-dryer/tkfontawesome.svg)
+![](https://img.shields.io/github/languages/code-size/israel-dryer/tkfontawesome)
+
 # TkFontAwesome
 
 A library that enables you to use [FontAwesome icons](https://fontawesome.com/v5.0/icons?d=gallery&p=2&m=free) 
