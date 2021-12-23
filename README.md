@@ -56,4 +56,4 @@ root.mainloop()
 ## License
 
 The [CC BY 4.0](https://fontawesome.com/license/free) license applies to all FontAwesome _free_ icons used in the library.
-The [MIT License](LICENSE.md) applies to all other work.
+The [MIT License](https://github.com/israel-dryer/TkFontAwesome/blob/main/LICENSE) applies to all other work.
