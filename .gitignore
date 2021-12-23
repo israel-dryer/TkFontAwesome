@@ -1,0 +1,13 @@
+venv
+.idea
+build
+dist
+*.egg-info
+*.mp4
+*_build
+*_static
+.vscode
+__pycache__
+experiment
+testing_notes.txt
+docsenv
