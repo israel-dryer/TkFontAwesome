@@ -7,7 +7,7 @@ You may use any of the 1k+ _free_ [FontAwesome 5.0 icons](https://fontawesome.co
 The **fill color** and **size** are customized to your specifications and then converted
 to an object via [ttksvg](https://pypi.org/project/tksvg/) that can be used anywhere you would use a `tkinter.PhotoImage` object.
 
-![example-2](https://github.com/israel-dryer/TkFontAwesome/raw/main/assets/example-2.1.png)
+![example-2](https://raw.githubusercontent.com/israel-dryer/TkFontAwesome/main/assets/example-2.1.png)
 
 ## Installation
 
@@ -31,7 +31,7 @@ tk.Button(root, image=send).pack(padx=10, pady=10)
 root.mainloop()
 ```
 
-![example-1](https://github.com/israel-dryer/TkFontAwesome/raw/main/assets/example-1.1.png)
+![example-1](https://raw.githubusercontent.com/israel-dryer/TkFontAwesome/main/assets/example-1.1.png)
 
 ## tkfontawesome.`icon_to_image`
 ```python
