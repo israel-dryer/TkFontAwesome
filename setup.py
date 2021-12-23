@@ -1,6 +1,5 @@
 import setuptools
-
-long_description = ""
+import io
 
 setuptools.setup(
     name="tkfontawesome",
@@ -8,8 +7,8 @@ setuptools.setup(
     author="Israel Dryer",
     author_email="israel.dryer@gmail.com",
     description="",
-    keywords="",
-    long_description=long_description,
+    keywords="svg fontawesome icons tkinter ttk",
+    long_description=io.open('README.md', encoding='utf8').read(),
     long_description_content_type="text/markdown",
     classifiers=[
         "Programming Language :: Python :: 3",
