@@ -1,6 +1,5 @@
 # TkFontAwesome
 
-## About
 A library that enables you to use [FontAwesome icons](https://fontawesome.com/v5.0/icons?d=gallery&p=2&m=free) 
 in your tkinter application. 
 
