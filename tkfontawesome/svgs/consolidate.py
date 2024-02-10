@@ -8,6 +8,7 @@ awesome download zip.
 
 import json
 from pathlib import Path
+from pprint import pformat
 
 root = Path(__file__).parent
 
@@ -33,4 +34,4 @@ for icon, icon_data in icons.items():
         alias_dict[alias] = icon
 
 with (root/'..'/'svgs.py').open('w', encoding='utf-8') as f:
-    f.write(f'FA = {svg_dict}\nFA_aliases = {alias_dict}\n')
+    f.write(f'FA = {pformat(svg_dict, width=9999, indent=4)}\nFA_aliases = {pformat(alias_dict, indent=4)}\n')
