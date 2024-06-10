@@ -1,7 +1,7 @@
 import io
 import tksvg
 from lxml import etree
-from tkfontawesome.svgs import FA
+from tkfontawesome.svgs import FA, FA_aliases
 
 
 def icon_to_image(name, fill=None, scale_to_width=None, scale_to_height=None, scale=1):
@@ -48,10 +48,14 @@ def icon_to_image(name, fill=None, scale_to_width=None, scale_to_height=None, sc
         root.mainloop()
         ```
     """
+    # A lot of icons were renamed in Font Awesome v6. Resolve aliases before loading an icon.
+    name = FA_aliases.get(name, name)
+    if name.startswith('fa-'):
+        name = name[3:]
     xml_data = FA.get(name)
     if xml_data is None:
         raise Exception(
-            f"'{name}' is not a valid icon name. Check spelling and consult https://fontawesome.com/v5.0/icons."
+            f"'{name}' is not a valid icon name. Check spelling and consult https://fontawesome.com/v6/icons."
         )
     img_data = svg_to_image(xml_data, fill, scale_to_width, scale_to_height, scale)
     return img_data
