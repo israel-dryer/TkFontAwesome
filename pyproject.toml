@@ -1,6 +1,6 @@
 [project]
 name = "tkfontawesome"
-version = "0.2.1"
+version = "0.2.2"
 authors = [{name = "Israel Dryer", email = "israel.dryer@gmail.com"}]
 description ="Use any of the 2k+ free FontAwesome icons in your tkinter application."
 keywords = ["svg", "fontawesome", "icons", "tkinter", "ttk"]
