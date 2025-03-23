@@ -26,5 +26,5 @@ Issues = "https://github.com/israel-dryer/tkfontawesome/issues"
 requires = ["setuptools", "scikit-build"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools.packages.find]
-where = ["tkfontawesome/"]
+[tool.setuptools]
+packages = ["tkfontawesome"]
