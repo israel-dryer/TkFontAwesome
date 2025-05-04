@@ -5,108 +5,74 @@ from tkfontawesome.svgs import FA, FA_aliases
 
 
 def icon_to_image(name, fill=None, scale_to_width=None, scale_to_height=None, scale=1):
-    """Lookup an svg file by name and return as an SvgImage object that
-    can be used anywhere a PhotoImage object is used in tkinter.
+    """
+    Look up a FontAwesome icon by name and return it as an SvgImage object,
+    which can be used anywhere a PhotoImage object is used in tkinter.
 
     Parameters:
-
-        name (str):
-            The name of the FontAwesome icon. The icon name can be
-            found at https://fontawesome.com/v5.0/icons. Only the free
-            categories are available in this library.
-
-        fill (str):
-            Sets the fill color of the svg path.
-
-        scale_to_width (int):
-            Adjust to image size to this width in pixels. Maintains
-            the view's aspect ratio.
-
-        scale_to_height (int):
-            Adjust to image size to this height in pixels. Maintains
-            the view's aspect ratio.
-
-        scale (float):
-            Scale the image width and height by this factor.
+        name (str): Name of the FontAwesome icon (e.g., 'facebook').
+        fill (str): Optional fill color for the icon (e.g., "#4267B2").
+        scale_to_width (int): Target width in pixels (maintains aspect ratio).
+        scale_to_height (int): Target height in pixels (maintains aspect ratio).
+        scale (float): Scaling factor (applied only if width/height are not set).
 
     Returns:
+        SvgImage: The converted SVG image ready for tkinter use.
 
-        SvgImage:
-            The converted svg image
-
-    Examples:
-
-        ```python
+    Example:
         import tkinter as tk
         from tkfontawesome import icon_to_image
 
         root = tk.Tk()
         img = icon_to_image("facebook", fill="#4267B2", scale_to_width=64)
-
         tk.Label(root, image=img).pack(padx=10, pady=10)
-
         root.mainloop()
-        ```
     """
-    # A lot of icons were renamed in Font Awesome v6. Resolve aliases before loading an icon.
     name = FA_aliases.get(name, name)
     if name.startswith('fa-'):
         name = name[3:]
     xml_data = FA.get(name)
     if xml_data is None:
-        raise Exception(
-            f"'{name}' is not a valid icon name. Check spelling and consult https://fontawesome.com/v6/icons."
+        raise ValueError(
+            f"'{name}' is not a valid icon name. Check spelling or visit https://fontawesome.com/icons."
         )
-    img_data = svg_to_image(xml_data, fill, scale_to_width, scale_to_height, scale)
-    return img_data
+    return svg_to_image(xml_data, fill, scale_to_width, scale_to_height, scale)
 
 
 def svg_to_image(source, fill=None, scale_to_width=None, scale_to_height=None, scale=1):
-    """Opens and svg file and returns an SvgImage object that can be
-    used anywhere you would use a tkinter.PhotoImage.
+    """
+    Convert an SVG string into an SvgImage object for use in tkinter.
 
     Parameters:
-        source (str):
-            string containing svg data
-
-        fill (str):
-            Sets the fill color of the svg path.
-
-        scale_to_width (int):
-            Adjust to image size to this width in pixels. Maintains
-            the view's aspect ratio.
-
-        scale_to_height (int):
-            Adjust to image size to this height in pixels. Maintains
-            the view's aspect ratio.
-
-        scale (float):
-            Scale the image width and height by this factor.
-
-        **kwargs (Dict):
-            Other keyword arguments.
+        source (str): Raw SVG XML string.
+        fill (str): Optional fill color override.
+        scale_to_width (int): Width in pixels (maintains aspect ratio).
+        scale_to_height (int): Height in pixels (maintains aspect ratio).
+        scale (float): Optional scaling factor.
 
     Returns:
-
-        SvgImage:
-            The converted svg image
+        SvgImage: The processed image object.
     """
-    # parse xml data
     root = etree.fromstring(source)
     tree = etree.ElementTree(root)
 
-    # set path fill color if provided
-    if fill is not None:
-        root.attrib["fill"] = fill
+    # Apply fill color override if provided
+    if fill:
+        for elem in root.iter():
+            tag = str(elem.tag)
+            if 'fill' in elem.attrib:
+                elem.attrib['fill'] = fill
+            elif tag.endswith("path"):
+                elem.attrib['fill'] = fill
 
-    imgdata = io.BytesIO()
-    tree.write(imgdata)
-    kw = {"data": imgdata.getvalue()}
+    img_data = io.BytesIO()
+    tree.write(img_data)
+    params = {"data": img_data.getvalue()}
     if scale_to_width:
-        kw["scaletowidth"] = scale_to_width
+        params["scaletowidth"] = scale_to_width
     if scale_to_height:
-        kw["scaletoheight"] = scale_to_height
+        params["scaletoheight"] = scale_to_height
     if scale != 1:
-        kw["scale"] = scale
+        params["scale"] = scale
 
-    return tksvg.SvgImage(**kw)
+    return tksvg.SvgImage(**params)

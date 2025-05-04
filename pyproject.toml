@@ -1,6 +1,6 @@
 [project]
 name = "tkfontawesome"
-version = "0.2.1"
+version = "0.3.1"
 authors = [{name = "Israel Dryer", email = "israel.dryer@gmail.com"}]
 description ="Use any of the 2k+ free FontAwesome icons in your tkinter application."
 keywords = ["svg", "fontawesome", "icons", "tkinter", "ttk"]
@@ -11,9 +11,9 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 dependencies = [
-    "lxml==5.1.0",
+    "lxml==5.4.0",
     "tksvg==0.7.4"
 ]
 
