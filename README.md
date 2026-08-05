@@ -1,4 +1,4 @@
-# Prefer `tkinter-icons`?
+# Prefer `tkinter-icons`
 If you want a modern icon set for Tk/ttk, consider the unified and cross-platform **[tkinter-icons](https://github.com/israel-dryer/tkinter-icons)** collection. It includes a dedicated Font Awesome pack.
 ```bash
 pip install "tkinter-icons[fontawesome]"
