@@ -1,7 +1,7 @@
-# Prefer `ttkbootstrap-icons`?
-If you want a modern icon set for Tk/ttk, consider the unified **[ttkbootstrap-icons](https://github.com/israel-dryer/ttkbootstrap-icons)** collection. It includes a dedicated Font Awesome pack: **[`ttkbootstrap-icons-fa`](https://pypi.org/project/ttkbootstrap-icons-fa/)**.
+# Prefer `tkinter-icons`?
+If you want a modern icon set for Tk/ttk, consider the unified and cross-platform **[tkinter-icons](https://github.com/israel-dryer/tkinter-icons)** collection. It includes a dedicated Font Awesome pack.
 ```bash
-pip install ttkbootstrap-icons-fa
+pip install "tkinter-icons[fontawesome]"
 ```
 
 [![PyPI](https://img.shields.io/pypi/v/tkfontawesome.svg)](https://pypi.org/project/tkfontawesome/)
